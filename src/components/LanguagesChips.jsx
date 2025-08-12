@@ -1,5 +1,5 @@
 import { languages } from '../languages.js'
-export default function LanguagesLives() {
+export default function LanguagesChips() {
     const languageElements = languages.map(language => {
         const styles = {
             backgroundColor: language.backgroundColor,
@@ -14,7 +14,7 @@ export default function LanguagesLives() {
 
     
     return (
-        <section className="languages-lives">
+        <section className="languages-chips">
             {languageElements}
         </section>
     )

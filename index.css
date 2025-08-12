@@ -49,15 +49,97 @@ section.game-status > p {
 }
 
 /* ################################# LANGUAGE LIVES ################################# */
-section.languages-lives {
+section.languages-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
     align-items: center;
     max-width: 350px;
+    margin-bottom: 36px;
 }
 .language {
     padding: 4.5px;
     border-radius: 4px;
+}
+
+/* ################################# MAIN WORD ################################# */
+section.word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 36px;
+}
+section.word > span {
+    height: 40px;
+    width: 40px;
+    background-color: #323232;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #F9F4DA;
+}
+
+/* ################################# KEYBOARD ################################# */
+.keyboard {
+    max-width: 450px;
+}
+.keyboard-row {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.key {
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    background: #FCBA29;
+    color: #1E1E1E;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.key:hover {
+    background: #e6a824;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.key:active {
+    background: #cc951f;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ################################# NEW GAME BUTTON ################################# */
+.new-game {
+    margin-top: 36px;
+    width: 225px;
+    height: 40px;
+    display: block;
+    margin-inline: auto;
+    padding: 8px 16px;
+    background: #3498db; /* Medium blue */
+    color: #F9F4DA;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.new-game:hover {
+    background: #2980b9; /* Slightly darker blue */
+    transform: translateY(-2px);
+}
+
+.new-game:active {
+    background: #2471a3; /* Even darker when pressed */
+    transform: translateY(0);
 }
