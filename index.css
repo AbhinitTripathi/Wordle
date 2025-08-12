@@ -47,3 +47,17 @@ section.game-status > h2 {
 section.game-status > p {
     margin: 5px;
 }
+
+/* ################################# LANGUAGE LIVES ################################# */
+section.languages-lives {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+}
+.language {
+    padding: 4.5px;
+    border-radius: 4px;
+}
