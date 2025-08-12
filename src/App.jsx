@@ -1,9 +1,10 @@
-import './App.css'
-
+import Header from './components/Header.jsx'
+import Status from './components/Status.jsx'
 export default function App() {
   return (
     <main>
-      React ⚛️ + Vite ⚡ + Replit
+      <Header/>
+      <Status/>
     </main>
   )
 }
