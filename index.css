@@ -92,7 +92,7 @@ section.word > span {
     justify-content: center;
     margin-bottom: 2px;
 }
-.key {
+.keyboard-row > button {
     border: none;
     display: inline-flex;
     justify-content: center;
@@ -106,15 +106,24 @@ section.word > span {
     font-weight: bold;
     cursor: pointer;
 }
-.key:hover {
+.keyboard-row > button:hover {
     background: #e6a824;
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-.key:active {
+.keyboard-row > button:active {
     background: #cc951f;
     transform: translateY(0);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.keyboard-row > button.correct {
+    background: #10A95B;
+    color: #F9F4DA;
+}
+.keyboard-row > button.wrong {
+    background: #D92929;
+    color: #F9F4DA
 }
 
 /* ################################# NEW GAME BUTTON ################################# */

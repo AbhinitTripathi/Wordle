@@ -23,6 +23,7 @@ export default function App() {
             <Keyboard
                 guessedLetters={guessedLetters}
                 setGuessedLetters={setGuessedLetters}
+                currentWord={currentWord}
             />
 
             <button className="new-game">New Game</button>

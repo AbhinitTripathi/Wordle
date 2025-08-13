@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
+import { clsx } from "clsx"
 export default function Keyboard(props) {
     const layout = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
-    // useRef so the the useEffect knows the latest guessedLetters for duplicate checks
+    // useRef so that the useEffect knows the latest guessedLetters for duplicate checks
+    // By default, useEffect only knows the initial guessedLetters i.e. []
     const guessedLettersRef = useRef(props.guessedLetters);
     useEffect(() => {
         guessedLettersRef.current = props.guessedLetters;
@@ -18,8 +20,7 @@ export default function Keyboard(props) {
             letter.charCodeAt(0) < 65 ||
             letter.charCodeAt(0) > 90 ||
             letter.length > 1
-        )
-            return;
+        )   return;
 
         props.setGuessedLetters(prev => [...prev, letter]);
     }
@@ -34,24 +35,33 @@ export default function Keyboard(props) {
         console.log(props.guessedLetters);
     }, [props.guessedLetters]);
 
-    useEffect(() => {
-        window.addEventListener("keydown", addGuessedLetters);
-        return () => window.removeEventListener("keydown", addGuessedLetters);
-    }, []);
-
     return (
         <section className="keyboard">
             {layout.map((row, rowIndex) => (
                 <div className="keyboard-row" key={rowIndex}>
-                    {row.split("").map((alphabet, i) => (
-                        <button
-                            key={i}
-                            onClick={addGuessedLetters}
-                            className="key"
-                        >
-                            {alphabet}
-                        </button>
-                    ))}
+                    {row.split("").map((alphabet, i) => {
+                        // We need class names on key to be added based on the guessed letters
+                        // This is where clsx helps us, otherwise we would use nested ternary operators
+                        const isGuessed = props.guessedLetters.includes(alphabet);
+                        const isCorrect = isGuessed && props.currentWord.includes(alphabet.toLowerCase());
+                        const isWrong   = isGuessed && !props.currentWord.includes(alphabet.toLowerCase());
+
+                        const className = clsx({
+                            correct: isCorrect,
+                            wrong: isWrong
+                        });
+                        
+                    return (
+                            <button
+                                key={i}
+                                onClick={addGuessedLetters}
+                                className={className}
+                                disabled={!!className}
+                            >
+                                {alphabet}
+                            </button>
+                        )
+                    })}
                 </div>
             ))}
         </section>
