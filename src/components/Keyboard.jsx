@@ -30,10 +30,6 @@ export default function Keyboard(props) {
         window.addEventListener("keydown", addGuessedLetters);
         return () => window.removeEventListener("keydown", addGuessedLetters);
     }, []);
-    // Update guessedLetters from keydown event
-    useEffect(() => {
-        console.log(props.guessedLetters);
-    }, [props.guessedLetters]);
 
     return (
         <section className="keyboard">

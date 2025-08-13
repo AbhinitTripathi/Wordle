@@ -62,6 +62,24 @@ section.languages-chips {
     padding: 4.5px;
     border-radius: 4px;
 }
+.isDead {
+    position: relative;
+    pointer-events: none;
+}
+.isDead::after {
+    content: "💀";
+    font-size: 0.85rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: inherit;
+}
 
 /* ################################# MAIN WORD ################################# */
 section.word {
