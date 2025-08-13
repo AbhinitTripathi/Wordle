@@ -31,7 +31,11 @@ export default function App() {
     return (
         <main>
             <Header />
-            <Status />
+            <Status
+                isGameWon={isGameWon}
+                isGameLost={isGameLost}
+                isGameOver={isGameOver}
+            />
             <LanguagesChips wrongGuessCount={wrongGuessCount}/>
             <Word
                 currentWord={currentWord}
