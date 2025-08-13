@@ -125,7 +125,7 @@ section.word > span {
     display: block;
     margin-inline: auto;
     padding: 8px 16px;
-    background: #3498db; /* Medium blue */
+    background: #3498db;
     color: #F9F4DA;
     font-weight: bold;
     border: none;
@@ -133,13 +133,11 @@ section.word > span {
     cursor: pointer;
     transition: background 0.2s ease;
 }
-
 .new-game:hover {
-    background: #2980b9; /* Slightly darker blue */
+    background: #2980b9;
     transform: translateY(-2px);
 }
-
 .new-game:active {
-    background: #2471a3; /* Even darker when pressed */
+    background: #2471a3;
     transform: translateY(0);
 }
