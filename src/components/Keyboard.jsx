@@ -48,7 +48,8 @@ export default function Keyboard(props) {
 
                         const className = clsx({
                             correct: isCorrect,
-                            wrong: isWrong
+                            wrong: isWrong,
+                            guessed: isGuessed
                         });
                         
                     return (

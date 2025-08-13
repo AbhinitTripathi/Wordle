@@ -126,6 +126,27 @@ section.word > span {
     color: #F9F4DA
 }
 
+.keyboard-row > button.guessed {
+    position: relative;            /* so overlay can be positioned */
+    pointer-events: none;           /* disables hover/click events */
+}
+.keyboard-row > button.guessed::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: inherit;
+}
+/* Prevent hover/active styles from applying to guessed buttons */
+.keyboard-row > button.guessed:hover,
+.keyboard-row > button.guessed:active {
+    background-color: inherit;
+    transform: none;
+}
+
 /* ################################# NEW GAME BUTTON ################################# */
 .new-game {
     margin-top: 36px;
