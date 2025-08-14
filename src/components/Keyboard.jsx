@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { clsx } from "clsx"
+import { clsx } from "clsx";
 export default function Keyboard(props) {
     const layout = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
@@ -20,16 +20,22 @@ export default function Keyboard(props) {
             letter.charCodeAt(0) < 65 ||
             letter.charCodeAt(0) > 90 ||
             letter.length > 1
-        )   return;
+        )
+            return;
 
-        props.setGuessedLetters(prev => [...prev, letter]);
+        props.setGuessedLetters((prev) => [...prev, letter]);
     }
 
     // Add event listener for keydown when the component mounts
     useEffect(() => {
-        window.addEventListener("keydown", addGuessedLetters);
-        return () => window.removeEventListener("keydown", addGuessedLetters);
-    }, []);
+        if (!props.isGameOver) {
+            window.addEventListener("keydown", addGuessedLetters);
+        }
+
+        return () => {
+            window.removeEventListener("keydown", addGuessedLetters);
+        };
+    }, [props.isGameOver, addGuessedLetters]);
 
     return (
         <section className="keyboard">
@@ -38,26 +44,34 @@ export default function Keyboard(props) {
                     {row.split("").map((alphabet, i) => {
                         // We need class names on key to be added based on the guessed letters
                         // This is where clsx helps us, otherwise we would use nested ternary operators
-                        const isGuessed = props.guessedLetters.includes(alphabet);
-                        const isCorrect = isGuessed && props.currentWord.includes(alphabet.toLowerCase());
-                        const isWrong   = isGuessed && !props.currentWord.includes(alphabet.toLowerCase());
+                        const isGuessed =
+                            props.guessedLetters.includes(alphabet);
+                        const isCorrect =
+                            isGuessed &&
+                            props.currentWord.includes(alphabet.toLowerCase());
+                        const isWrong =
+                            isGuessed &&
+                            !props.currentWord.includes(alphabet.toLowerCase());
 
                         const className = clsx({
                             correct: isCorrect,
                             wrong: isWrong,
-                            guessed: isGuessed
+                            guessed: isGuessed,
+                            "game-over": props.isGameOver
                         });
-                        
-                    return (
+
+                        return (
                             <button
                                 key={i}
                                 onClick={addGuessedLetters}
                                 className={className}
-                                disabled={!!className}
+                                disabled={!!className}                               
+                                aria-disabled={!!className}                               
+                                aria-label={`Letter ${alphabet}`}                               
                             >
                                 {alphabet}
                             </button>
-                        )
+                        );
                     })}
                 </div>
             ))}
