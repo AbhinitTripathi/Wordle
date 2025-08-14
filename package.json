@@ -21,6 +21,8 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "react-confetti": "^6.4.0",
+    "react-use": "^17.6.0"
   }
 }
