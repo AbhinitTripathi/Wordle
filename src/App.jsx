@@ -9,7 +9,7 @@ import getRandomWord from "./wordsToGuess.js";
 
 export default function App() {
     // Shared with WORD & KEYBOARD component
-    const [currentWord, setCurrentWord] = useState(getRandomWord());
+    const [currentWord, setCurrentWord] = useState(() => getRandomWord());
     const letterElements = currentWord
         .split("")
         .map((letter, i) => <span key={i}>{letter.toUpperCase()}</span>);
@@ -33,7 +33,6 @@ export default function App() {
     // Check if last guessed letter in correct or not for farewell message
     const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
     const isLastGuessedIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter.toLowerCase());
-    
 
     return (
         <main>
@@ -53,6 +52,7 @@ export default function App() {
                 letterElements={letterElements}
                 guessedLetters={guessedLetters}
                 guessesLeft={guessesLeft}
+                isGameOver={isGameOver}
             />
             <Keyboard
                 guessedLetters={guessedLetters}
@@ -61,7 +61,10 @@ export default function App() {
                 isGameOver={isGameOver}
             />
 
-            {isGameOver ? <button className="new-game">New Game</button> : null}
+            {isGameOver ? <button onClick={() => {
+                setCurrentWord(getRandomWord());
+                setGuessedLetters([]);
+            }} className="new-game">New Game</button> : null}
         </main>
     );
 }

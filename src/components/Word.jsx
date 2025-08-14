@@ -2,12 +2,13 @@ export default function Word(props) {
     return (
         <>
             <section className='word' >
-                {props.letterElements.map(divElement => {
+                {props.letterElements.map((divElement, i) => {
                     const letter = divElement.props.children;
                     const isGuessed = props.guessedLetters.includes(letter);
                     return (
-                        <span key={letter}>
-                            {isGuessed ? letter : null}
+                        <span key={i} style={!isGuessed && props.isGameOver ? { color: "#D92929" } : null}>
+                            {/* Reveal letter if it is guessed or if game is over */}
+                            {(isGuessed || props.isGameOver) ? letter : null}
                         </span>
                     )
                 })}

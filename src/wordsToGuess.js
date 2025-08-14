@@ -100,7 +100,29 @@ const strangerThingsWordList = [
   "mettalica", "music", "band", "rock", "guitar", "masterofpuppets"
 ];
 
+const narutoWordList = [
+  "naruto", "sasuke", "sakura", "kakashi", "gaara", "itachi", "madara", "obito", "pain", "jiraiya",
+  "orochi", "tsunade", "minato", "kushina", "hinata", "neji", "lee", "tenten", "shino", "kiba",
+  "choji", "ino", "shikamaru", "asuma", "kurenai", "guy", "yamato", "sai", "danzo", "hiruzen",
+  "tobirama", "hashirama", "temari", "kankuro", "chiyo", "deidara", "sasori", "hidan", "kakuzu", "kisame",
+  "tobi", "zetsu", "konan", "nagato", "yahiko", "hanzo", "raikage", "mizukage", "tsuchikage", "kazekage",
+  "hokage", "kage", "anbu", "root", "akatsuki", "sound", "mist", "sand", "rock", "cloud",
+  "leaf", "konoha", "village", "hidden", "ninja", "shinobi", "genin", "chunin", "jonin", "sensei",
+  "team", "squad", "cell", "clan", "uchiha", "hyuga", "nara", "akimichi", "yamanaka", "aburame",
+  "inuzuka", "senju", "uzumaki", "hatake", "sarutobi", "namikaze", "sabaku", "gaara", "temari", "kankuro",
+  "jutsu", "ninjutsu", "genjutsu", "taijutsu", "chakra", "mana", "energy", "power", "seal", "mark",
+  "rasengan", "chidori", "sharingan", "byakugan", "rinnegan", "mangekyou", "eternal", "sage", "mode", "kyubi",
+  "tailed", "beast", "bijuu", "jinchuriki", "fox", "nine", "one", "two", "three", "four",
+  "five", "six", "seven", "eight", "shukaku", "matatabi", "isobu", "son", "kokuo", "saiken",
+  "chomei", "gyuki", "kurama", "demon", "spirit", "summon", "contract", "scroll", "blood", "sign",
+  "hand", "finger", "weave", "tiger", "snake", "fire", "water", "earth", "wind", "lightning",
+  "wood", "ice", "lava", "steam", "crystal", "bone", "metal", "magnet", "dust", "particle",
+  "clone", "shadow", "solid", "water", "earth", "multi", "mass", "henge", "transform", "replace",
+  "kunai", "shuriken", "katana", "sword", "blade", "weapon", "tool", "wire", "bomb", "tag",
+  "paper", "explode", "smoke", "flash", "poison", "needle", "senbon", "tanto", "fan", "puppet"
+];
+
 export default function getRandomWord() {
-  const randomIndex = Math.floor(Math.random() * superheroWordList.length);
-  return superheroWordList[randomIndex];
+  const randomIndex = Math.floor(Math.random() * narutoWordList.length);
+  return narutoWordList[randomIndex];
 }
