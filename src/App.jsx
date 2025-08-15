@@ -82,7 +82,7 @@ export default function App() {
                             audioRelease.play();
                         });
                     }}
-                    className="new-game"
+                    className="mt-9 w-[225px] h-10 block mx-auto px-4 py-2 bg-[#3498db] text-[#F9F4DA] font-bold border-none rounded cursor-pointer transition-colors duration-200 hover:bg-[#2980b9] hover:-translate-y-0.5 active:bg-[#2471a3] active:translate-y-0"
                 >
                     New Game
                 </button>

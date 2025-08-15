@@ -77,49 +77,51 @@ const superheroWordList = [
 ];
 
 const strangerThingsWordList = [
+  // Main characters
   "eleven", "mike", "dustin", "lucas", "will", "max", "nancy", "steve", "robin", "eddie",
-  "hopper", "joyce", "murray", "billy", "karen", "ted", "susan", "neil", "wayne", "owens",
-  "hawkins", "upside", "down", "demo", "dog", "mind", "flayer", "shadow", "monster", "beast",
-  "portal", "gate", "rift", "tear", "open", "close", "dark", "light", "flip", "mirror",
-  "lab", "papa", "brenner", "kali", "eight", "jane", "terry", "powers", "psychic", "kinetic",
-  "blood", "nose", "bleed", "focus", "rage", "anger", "calm", "peace", "still", "quiet",
-  "waffle", "eggo", "food", "snack", "syrup", "sweet", "cabin", "woods", "forest", "tree",
-  "radio", "ham", "signal", "static", "noise", "sound", "voice", "hear", "listen", "talk",
-  "phone", "call", "ring", "hello", "help", "save", "rescue", "find", "search", "look",
-  "bike", "ride", "pedal", "wheel", "chain", "spoke", "tire", "bell", "horn", "speed",
-  "school", "middle", "high", "class", "study", "learn", "teach", "book", "read", "write",
-  "party", "group", "team", "club", "member", "friend", "best", "buddy", "pal", "crew",
-  "game", "dungeon", "dragon", "dice", "roll", "play", "board", "card", "piece", "move",
-  "mall", "store", "shop", "buy", "sell", "work", "job", "ice", "cream", "scoops",
-  "pool", "swim", "water", "blue", "deep", "dive", "splash", "wet", "dry", "towel",
-  "car", "drive", "road", "street", "house", "home", "door", "window", "wall", "room",
-  "bed", "sleep", "dream", "night", "mare", "wake", "morning", "day", "sun", "moon",
-  "music", "song", "band", "guitar", "drum", "bass", "sing", "dance", "party", "fun",
-  "love", "crush", "kiss", "date", "heart", "feel", "care", "like", "want", "need",
-  "fear", "scared", "afraid", "terror", "horror", "creepy", "weird", "strange", "odd", "eerie",
-  "mettalica", "music", "band", "rock", "guitar", "masterofpuppets"
+  "hopper", "joyce", "murray", "billy", "jonathan", "erica", "argyle",
+
+  // Locations
+  "hawkins", "hawkinslab", "arcade", "hellfireclub", "surferboypizza",
+
+  // Monsters & supernatural
+  "upsideDown", "demogorgon", "demodog", "mindflayer", "vecna", "shadowmonster", "spidermonster",
+  "creelhouse", "hellgate", "portal", "rift",
+
+  // Key plot elements
+  "psychic", "telekinesis", "powers", "nosebleed", "flashback", "possession", "visions",
+  "dnd", "dungeonsanddragons", "campaign", "masterofpuppets",
+
+  // Objects & symbols
+  "waffle", "christmaslights", "mixtape", "metallica", "masterofpuppets"
 ];
 
+
 const narutoWordList = [
+  // Main characters
   "naruto", "sasuke", "sakura", "kakashi", "gaara", "itachi", "madara", "obito", "pain", "jiraiya",
-  "orochi", "tsunade", "minato", "kushina", "hinata", "neji", "lee", "tenten", "shino", "kiba",
+  "orochimaru", "tsunade", "minato", "kushina", "hinata", "neji", "rocklee", "tenten", "shino", "kiba",
   "choji", "ino", "shikamaru", "asuma", "kurenai", "guy", "yamato", "sai", "danzo", "hiruzen",
   "tobirama", "hashirama", "temari", "kankuro", "chiyo", "deidara", "sasori", "hidan", "kakuzu", "kisame",
-  "tobi", "zetsu", "konan", "nagato", "yahiko", "hanzo", "raikage", "mizukage", "tsuchikage", "kazekage",
-  "hokage", "kage", "anbu", "root", "akatsuki", "sound", "mist", "sand", "rock", "cloud",
-  "leaf", "konoha", "village", "hidden", "ninja", "shinobi", "genin", "chunin", "jonin", "sensei",
-  "team", "squad", "cell", "clan", "uchiha", "hyuga", "nara", "akimichi", "yamanaka", "aburame",
-  "inuzuka", "senju", "uzumaki", "hatake", "sarutobi", "namikaze", "sabaku", "gaara", "temari", "kankuro",
-  "jutsu", "ninjutsu", "genjutsu", "taijutsu", "chakra", "mana", "energy", "power", "seal", "mark",
-  "rasengan", "chidori", "sharingan", "byakugan", "rinnegan", "mangekyou", "eternal", "sage", "mode", "kyubi",
-  "tailed", "beast", "bijuu", "jinchuriki", "fox", "nine", "one", "two", "three", "four",
-  "five", "six", "seven", "eight", "shukaku", "matatabi", "isobu", "son", "kokuo", "saiken",
-  "chomei", "gyuki", "kurama", "demon", "spirit", "summon", "contract", "scroll", "blood", "sign",
-  "hand", "finger", "weave", "tiger", "snake", "fire", "water", "earth", "wind", "lightning",
-  "wood", "ice", "lava", "steam", "crystal", "bone", "metal", "magnet", "dust", "particle",
-  "clone", "shadow", "solid", "water", "earth", "multi", "mass", "henge", "transform", "replace",
-  "kunai", "shuriken", "katana", "sword", "blade", "weapon", "tool", "wire", "bomb", "tag",
-  "paper", "explode", "smoke", "flash", "poison", "needle", "senbon", "tanto", "fan", "puppet"
+  "tobi", "zetsu", "konan", "nagato", "yahiko", "hanzo",
+
+  // Clans
+  "uchiha", "hyuga", "nara", "akimichi", "yamanaka", "aburame",
+  "inuzuka", "senju", "uzumaki", "hatake", "sarutobi", "namikaze", "sabaku",
+
+  // Villages & titles
+  "konoha", "kazekage", "mizukage", "raikage", "tsuchikage", "hokage", "kage",
+  "anbu", "root", "akatsuki",
+
+  // Jutsu & abilities
+  "rasengan", "chidori", "sharingan", "byakugan", "rinnegan", "mangekyou",
+  "izanagi", "izanami", "amaterasu", "susanoo",
+  "tsukuyomi", "shadowpossession", "gentlefist",
+  "chidori", "sandcoffin", "sandburial", "summoningjutsu", "reaperdeathseal",
+
+  // Tailed beasts & jinchuriki
+  "kyubi", "kurama", "shukaku", "matatabi", "isobu", "son", "kokuo", "saiken",
+  "chomei", "gyuki", "jinchuriki",
 ];
 
 export default function getRandomWord() {

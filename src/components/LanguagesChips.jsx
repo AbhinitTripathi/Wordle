@@ -25,7 +25,7 @@ export default function LanguagesChips(props) {
     });
 
     return (
-        <section className="flex flex-wrap gap-[5px] justify-center items-center max-w-[350px] mb-[36px]">
+        <section className=" m-auto flex flex-wrap gap-[5px] justify-center items-center max-w-[350px] mb-[36px]">
             {languageElements}
         </section>
     );

@@ -1,7 +1,7 @@
 export default function Word(props) {
     return (
         <>
-            <section className="flex justify-center items-center gap-[2px] mb-[36px]">
+            <section className="flex flex-wrap justify-center items-center gap-[2px] mb-[36px]">
                 {props.letterElements.map((divElement, i) => {
                     const letter = divElement.props.children;
                     const isGuessed = props.guessedLetters.includes(letter);

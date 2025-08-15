@@ -44,7 +44,7 @@ export default function Keyboard(props) {
     }, [props.isGameOver]);
 
     return (
-        <section className="max-w-[450px]">
+        <section className="max-w-[450px] m-auto">
             {layout.map((row, rowIndex) => (
                 <div
                     className="flex gap-[2px] justify-center mb-[2px]"
