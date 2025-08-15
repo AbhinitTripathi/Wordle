@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { clsx } from "clsx";
+import keyPressSound from "../assets/press/GENERIC_R3.mp3";
+
 export default function Keyboard(props) {
     const layout = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 
@@ -14,6 +16,10 @@ export default function Keyboard(props) {
     function addGuessedLetters(e) {
         e.stopPropagation();
         const letter = e.key ? e.key.toUpperCase() : e.target.innerText;
+
+        // Play sound when a letter is guessed
+        const audio = new Audio(keyPressSound);
+        audio.play();
 
         if (
             guessedLettersRef.current.includes(letter) ||
@@ -57,7 +63,7 @@ export default function Keyboard(props) {
                             correct: isCorrect,
                             wrong: isWrong,
                             guessed: isGuessed,
-                            "game-over": props.isGameOver
+                            "game-over": props.isGameOver,
                         });
 
                         return (
@@ -65,9 +71,9 @@ export default function Keyboard(props) {
                                 key={i}
                                 onClick={addGuessedLetters}
                                 className={className}
-                                disabled={!!className}                               
-                                aria-disabled={!!className}                               
-                                aria-label={`Letter ${alphabet}`}                               
+                                disabled={!!className}
+                                aria-disabled={!!className}
+                                aria-label={`Letter ${alphabet}`}
                             >
                                 {alphabet}
                             </button>

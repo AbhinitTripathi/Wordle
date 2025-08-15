@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import Status from "./components/Status.jsx";
 import LanguagesChips from "./components/LanguagesChips.jsx";
@@ -8,6 +8,8 @@ import { languages } from "./languages.js";
 import getRandomWord from "./wordsToGuess.js";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
+import newGamePress from "./assets/press/BACKSPACE.mp3";
+import newGameRelease from "./assets/release/BACKSPACE.mp3";
 
 export default function App() {
     // Shared with WORD & KEYBOARD component
@@ -70,6 +72,14 @@ export default function App() {
                     onClick={() => {
                         setCurrentWord(getRandomWord());
                         setGuessedLetters([]);
+
+                        // Play sound when new game button is pressed
+                        const audioPress = new Audio(newGamePress);
+                        audioPress.play();
+                        audioPress.addEventListener("ended", () => {
+                            const audioRelease = new Audio(newGameRelease);
+                            audioRelease.play();
+                        });
                     }}
                     className="new-game"
                 >
