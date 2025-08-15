@@ -17,10 +17,6 @@ export default function Keyboard(props) {
         e.stopPropagation();
         const letter = e.key ? e.key.toUpperCase() : e.target.innerText;
 
-        // Play sound when a letter is guessed
-        const audio = new Audio(keyPressSound);
-        audio.play();
-
         if (
             guessedLettersRef.current.includes(letter) ||
             letter.charCodeAt(0) < 65 ||
@@ -28,6 +24,10 @@ export default function Keyboard(props) {
             letter.length > 1
         )
             return;
+
+        // Play sound when a letter is guessed
+        const audio = new Audio(keyPressSound);
+        audio.play();
 
         props.setGuessedLetters((prev) => [...prev, letter]);
     }
@@ -41,12 +41,15 @@ export default function Keyboard(props) {
         return () => {
             window.removeEventListener("keydown", addGuessedLetters);
         };
-    }, [props.isGameOver, addGuessedLetters]);
+    }, [props.isGameOver]);
 
     return (
-        <section className="keyboard">
+        <section className="max-w-[450px]">
             {layout.map((row, rowIndex) => (
-                <div className="keyboard-row" key={rowIndex}>
+                <div
+                    className="flex gap-[2px] justify-center mb-[2px]"
+                    key={rowIndex}
+                >
                     {row.split("").map((alphabet, i) => {
                         // We need class names on key to be added based on the guessed letters
                         // This is where clsx helps us, otherwise we would use nested ternary operators
@@ -59,20 +62,25 @@ export default function Keyboard(props) {
                             isGuessed &&
                             !props.currentWord.includes(alphabet.toLowerCase());
 
-                        const className = clsx({
-                            correct: isCorrect,
-                            wrong: isWrong,
-                            guessed: isGuessed,
-                            "game-over": props.isGameOver,
-                        });
+                        const className = clsx(
+                            "inline-flex justify-center items-center w-[30px] h-[30px] m-[2px] rounded font-bold cursor-pointer border-none transition-transform",
+                            {
+                                "bg-[#FCBA29] text-[#1E1E1E] hover:bg-[#e6a824] hover:-translate-y-[2px] hover:shadow-[0_2px_4px_rgba(0,0,0,0.2)] active:bg-[#cc951f] active:translate-y-0 active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]":
+                                    !isCorrect && !isWrong,
+                                "bg-[#10A95B] text-[#F9F4DA]": isCorrect,
+                                "bg-[#D92929] text-[#F9F4DA]": isWrong,
+                                "relative after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-[rgba(0,0,0,0.3)] after:rounded-inherit hover:translate-y-0 active:translate-y-0 pointer-events-none":
+                                    isGuessed || props.isGameOver,
+                            },
+                        );
 
                         return (
                             <button
                                 key={i}
                                 onClick={addGuessedLetters}
                                 className={className}
-                                disabled={!!className}
-                                aria-disabled={!!className}
+                                disabled={props.isGameOver || isGuessed}
+                                aria-disabled={props.isGameOver || isGuessed}
                                 aria-label={`Letter ${alphabet}`}
                             >
                                 {alphabet}

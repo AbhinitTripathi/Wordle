@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Header from "./components/Header.jsx";
 import Status from "./components/Status.jsx";
 import LanguagesChips from "./components/LanguagesChips.jsx";
@@ -76,7 +76,8 @@ export default function App() {
                         // Play sound when new game button is pressed
                         const audioPress = new Audio(newGamePress);
                         audioPress.play();
-                        audioPress.addEventListener("ended", () => {
+                        audioPress.addEventListener("ended", (e) => {
+                            e.stopPropagation();
                             const audioRelease = new Audio(newGameRelease);
                             audioRelease.play();
                         });
